@@ -1,0 +1,23 @@
+.wrapperUser {
+  display: flex;
+  justify-content: space-evenly;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+.userName {
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.headerUser {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 750px) {
+  .wrapperUser {
+    flex-wrap: wrap;
+  }
+}

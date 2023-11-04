@@ -1,0 +1,33 @@
+.wrapperStatus {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 20px;
+  font-family: "Inter", sans-serif;
+}
+.headingStatus {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 500;
+  justify-content: space-between;
+}
+.headingStatus span {
+  color: black;
+}
+.leftStatusHeading {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+@media screen and (max-width: 745px) {
+  .status {
+    height: 100%;
+  }
+  .wrapperStatus {
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid black;
+    gap: 2rem;
+  }
+}
