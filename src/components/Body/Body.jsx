@@ -4,6 +4,8 @@ import Priority from "../priority/Priority";
 import Users from "../users/Users";
 import "./Body.css";
 const Body = ({ apiData, data }) => {
+  let localData = JSON.parse(localStorage.getItem("myData"));
+  //   console.log(localData);
   return (
     <div className="body">
       {data.grouping === "status" && (

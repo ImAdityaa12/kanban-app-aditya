@@ -3,43 +3,69 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Body from "./components/Body/Body";
 
-function App() {
-  const [data, setData] = useState({
-    grouping: "status",
-    ordering: "priority",
-  });
-  const [localData, setLocalData] = useState();
+const getOrderingData = () => {
+  let localData = localStorage.getItem("userData");
+  if (localData) {
+    return JSON.parse(localData); // Parse the retrieved data if it exists
+  } else {
+    return {
+      grouping: "status",
+      ordering: "priority",
+    };
+  }
+};
+const getApiData = () => {
+  let localData = localStorage.getItem("apiData");
+  if (localData) {
+    return JSON.parse(localData); // Parse the retrieved data if it exists
+  } else {
+    return async () => {
+      const res = await fetch(
+        "https://api.quicksell.co/v1/internal/frontend-assignment"
+      );
+      let fetchData = await res.json();
+      return fetchData;
+    };
+  }
+};
 
-  const [apiData, setApiData] = useState([]);
+function App() {
+  const [data, setData] = useState(getOrderingData());
+  // const api = getApiData();
+  // console.log(api);
+  // console.log(data);
+  const [apiData, setApiData] = useState(getApiData());
   const getData = async () => {
     const res = await fetch(
       "https://api.quicksell.co/v1/internal/frontend-assignment"
     );
     let fetchData = await res.json();
-    setApiData(fetchData);
+    localStorage.setItem("apiData", JSON.stringify(fetchData));
+    // setApiData(fetchData);
   };
   useEffect(() => {
     getData();
-    saveLocalData();
-    getLocalData();
+    // saveLocalData();
+    // getLocalData();
   }, []);
   useEffect(() => {
     saveLocalData();
-    getLocalData();
+    // getLocalData();
   }, [data]);
-
   const saveLocalData = () => {
-    localStorage.setItem("myData", JSON.stringify(data));
+    // localStorage.setItem("myData", JSON.stringify(data));
+    localStorage.setItem("userData", JSON.stringify(data));
   };
-  const getLocalData = () => {
-    if (localStorage.getItem("myData") === null) {
-      localStorage.setItem("myData", JSON.stringify({}));
-    } else {
-      let localData = JSON.parse(localStorage.getItem("myData"));
-      console.log(data);
-      setLocalData(localData);
-    }
-  };
+
+  // const getLocalData = () => {
+  //   if (localStorage.getItem("myData") === null) {
+  //     localStorage.setItem("myData", JSON.stringify({}));
+  //   } else {
+  //     let localData = JSON.parse(localStorage.getItem("myData"));
+  //     console.log(data);
+  //     setLocalData(localData);
+  //   }
+  // };
 
   return (
     <div className="app">

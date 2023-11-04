@@ -30,7 +30,12 @@ const Navbar = ({ data, setData }) => {
             <label htmlFor="group" className="label">
               Grouping
             </label>
-            <select name="grouping" id="group" onChange={handleChange}>
+            <select
+              name="grouping"
+              id="group"
+              value={data.grouping}
+              onChange={handleChange}
+            >
               <option value="status">Status</option>
               <option value="user">User</option>
               <option value="priority">Priority</option>
@@ -40,7 +45,12 @@ const Navbar = ({ data, setData }) => {
             <label htmlFor="group" className="label">
               Ordering
             </label>
-            <select name="ordering" id="group" onChange={handleChange}>
+            <select
+              name="ordering"
+              id="group"
+              value={data.ordering}
+              onChange={handleChange}
+            >
               <option value="priority">Priority</option>
               <option value="title">Title</option>
             </select>
