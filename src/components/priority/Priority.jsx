@@ -50,9 +50,9 @@ const Priority = ({ apiData, filterData }) => {
               <BsThreeDots />
             </span>
             <p>No Priority</p>
-            <div className="num">{count(0)}</div>
           </div>
           <div className="icons">
+            <div className="num">{count(0)}</div>
             <AiOutlinePlus />
             <BsThreeDots />
           </div>
@@ -80,9 +80,9 @@ const Priority = ({ apiData, filterData }) => {
               <AiOutlineWarning style={{ color: "white", width: "8px" }} />
             </span>
             <p>Urgent</p>
-            <div className="num">{count(4)}</div>
           </div>
           <div className="icons">
+            <div className="num">{count(4)}</div>
             <AiOutlinePlus />
             <BsThreeDots />
           </div>
@@ -101,9 +101,9 @@ const Priority = ({ apiData, filterData }) => {
               <MdOutlineSignalCellular4Bar style={{ fontSize: "12px" }} />
             </span>
             <p>High</p>
-            <div className="num">{count(3)}</div>
           </div>
           <div className="icons">
+            <div className="num">{count(3)}</div>
             <AiOutlinePlus />
             <BsThreeDots />
           </div>
@@ -122,9 +122,9 @@ const Priority = ({ apiData, filterData }) => {
               <MdSignalCellular2Bar />
             </span>
             <p>Medium</p>
-            <div className="num">{count(2)}</div>
           </div>
           <div className="icons">
+            <div className="num">{count(2)}</div>
             <AiOutlinePlus />
             <BsThreeDots />
           </div>
@@ -143,9 +143,9 @@ const Priority = ({ apiData, filterData }) => {
               <MdSignalCellularConnectedNoInternet1Bar />
             </span>
             <p>Low</p>
-            <div className="num">{count(1)}</div>
           </div>
           <div className="icons">
+            <div className="num">{count(1)}</div>
             <AiOutlinePlus />
             <BsThreeDots />
           </div>

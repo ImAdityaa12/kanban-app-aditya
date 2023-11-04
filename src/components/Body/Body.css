@@ -1,4 +1,9 @@
 .body {
   background-color: #f4f5f8;
-  height: fit-content;
+  height: 100vh;
+}
+@media screen and (max-width: 750px) {
+  .body {
+    height: 100%;
+  }
 }

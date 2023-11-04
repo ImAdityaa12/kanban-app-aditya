@@ -6,7 +6,7 @@ import Body from "./components/Body/Body";
 const getOrderingData = () => {
   let localData = localStorage.getItem("userData");
   if (localData) {
-    return JSON.parse(localData); // Parse the retrieved data if it exists
+    return JSON.parse(localData);
   } else {
     return {
       grouping: "status",
@@ -17,7 +17,7 @@ const getOrderingData = () => {
 const getApiData = () => {
   let localData = localStorage.getItem("apiData");
   if (localData) {
-    return JSON.parse(localData); // Parse the retrieved data if it exists
+    return JSON.parse(localData);
   } else {
     return async () => {
       const res = await fetch(
@@ -31,9 +31,6 @@ const getApiData = () => {
 
 function App() {
   const [data, setData] = useState(getOrderingData());
-  // const api = getApiData();
-  // console.log(api);
-  // console.log(data);
   const [apiData, setApiData] = useState(getApiData());
   const getData = async () => {
     const res = await fetch(
@@ -41,32 +38,17 @@ function App() {
     );
     let fetchData = await res.json();
     localStorage.setItem("apiData", JSON.stringify(fetchData));
-    // setApiData(fetchData);
+    setApiData(fetchData);
+  };
+  const saveLocalData = () => {
+    localStorage.setItem("userData", JSON.stringify(data));
   };
   useEffect(() => {
     getData();
-    // saveLocalData();
-    // getLocalData();
   }, []);
   useEffect(() => {
     saveLocalData();
-    // getLocalData();
   }, [data]);
-  const saveLocalData = () => {
-    // localStorage.setItem("myData", JSON.stringify(data));
-    localStorage.setItem("userData", JSON.stringify(data));
-  };
-
-  // const getLocalData = () => {
-  //   if (localStorage.getItem("myData") === null) {
-  //     localStorage.setItem("myData", JSON.stringify({}));
-  //   } else {
-  //     let localData = JSON.parse(localStorage.getItem("myData"));
-  //     console.log(data);
-  //     setLocalData(localData);
-  //   }
-  // };
-
   return (
     <div className="app">
       <Navbar data={data} setData={setData} />

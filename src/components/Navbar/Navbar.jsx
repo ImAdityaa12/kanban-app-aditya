@@ -21,7 +21,17 @@ const Navbar = ({ data, setData }) => {
         >
           <LuSettings2 />
           <span style={{ fontWeight: "500" }}>Display</span>
-          {show === false ? <AiOutlineDown /> : <BiUpArrowAlt />}
+          {show === false ? (
+            <AiOutlineDown
+              style={{
+                fontSize: "10px",
+                // position: "absolute",
+                marginTop: "3px",
+              }}
+            />
+          ) : (
+            <BiUpArrowAlt style={{ fontSize: "12px", marginTop: "1px" }} />
+          )}
         </button>
       </div>
       {show && (
